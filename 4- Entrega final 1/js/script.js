@@ -21,7 +21,7 @@ const ropa = [
 
 console.log(ropa);
 
-let opcion=parseInt(prompt('Ingrese una opción:  \n1 - Ingresar prenda. \n2 - Filtrar por criterio. \n3 - Filtrar por prenda\n4 - Salir '));
+let opcion=parseInt(prompt('Ingrese una opción:  \n1 - Ingresar prenda. \n2 - Filtrar por criterio. \n3 - Eliminar última prenda.\n4 - Salir '));
 
 while(opcion!=5){
     switch (opcion) {
@@ -32,7 +32,7 @@ while(opcion!=5){
             ropa.push(ropaN);
             ropaN.asignarId(ropa);
             console.log(ropa);
-            opcion=parseInt(prompt('Ingrese una opción:  \n1 - Ingresar prenda. \n2 - Filtrar por criterio. \n3 - Filtrar por prenda\n4 - Salir '));
+            opcion=parseInt(prompt('Ingrese una opción:  \n1 - Ingresar prenda. \n2 - Filtrar por criterio. \n3 - Eliminar última prenda.\n4 - Salir '));
             break;
         case 2:
             let criterio = prompt('Elegí el criterio deseado:\n1 - Nombre de la prenda alfabeticamente (A a Z). \n2 - Precio (menor a mayor). \n3 - Talle (menor a mayor). \n4');
@@ -65,7 +65,7 @@ while(opcion!=5){
                 return info;
             }
             alert(crearStringResultado(ordenar(criterio, ropa)));
-            opcion=parseInt(prompt('Ingrese una opción:  \n1 - Ingresar prenda. \n2 - Filtrar por criterio. \n3 - Filtrar por prenda\n4 - Salir '));
+            opcion=parseInt(prompt('Ingrese una opción:  \n1 - Ingresar prenda. \n2 - Filtrar por criterio. \n3 - Eliminar última prenda.\n4 - Salir '));
             break;
         case 4:
             ropa.pop();
