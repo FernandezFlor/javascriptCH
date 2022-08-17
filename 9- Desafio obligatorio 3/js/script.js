@@ -156,7 +156,41 @@ const pintarFooter = () => {
 
 
 // aiuda ;-;
-if(Object.keys(carrito).length===0){
+
+
+const btnSwal= document.getElementById("comp");
+
+btnSwal.onclick = () => {
+  if(Object.keys(carrito).length===0){
+
+    Swal.fire(
+
+      {
+        title:'Compra fallida!',
+        text:'No seleccionaste ningun producto',
+        icon:'error',
+        confirmButtonText:'Ok!',
+        position:'top-center'
+      }
+  ) 
+
+  }else{
+    Swal.fire(
+
+      {
+        title:'Gracias por elegirnos!',
+        text:'Compra finalizada',
+        icon:'success',
+        iconColor:'#81f40e',
+        confirmButtonText:'Ok!',
+        position:'top-center'
+  
+      }
+    ) 
+  }
+  
+}
+/*if(Object.keys(carrito).length===0){
   document.getElementById("comp").addEventListener("click", asdd)
 }else{
   document.getElementById("comp").addEventListener("click", popeye)
@@ -178,7 +212,7 @@ function popeye(){
     'Gracias por elegirnos!',
     'Aceptar'
   )
-}
+}*/
 
 const btnAumentarDisminuir = e => {
     if (e.target.classList.contains('btn-info')) {
