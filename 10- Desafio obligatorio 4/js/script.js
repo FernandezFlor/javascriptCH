@@ -1,42 +1,10 @@
-const productos = [
-    {
-      precio: '500',
-      id: 1,
-      title: "Remera",
-      thumbnailUrl: "https://picsum.photos/id/5/600"
-    },
-    {
-      precio: 300,
-        id: 2,
-      title: "Pantalon",
-      thumbnailUrl: "https://picsum.photos/id/9/600"
-    },
-    {
-      precio: 100,
-      id: 3,
-      title: "Buzo",
-      thumbnailUrl: "https://picsum.photos/id/20/600"
-    },
-    {
-      precio: 50,
-      id: 4,
-      title: "Bufanda",
-      thumbnailUrl: "https://picsum.photos/id/42/600"
-    },
-    {
-      precio: 10,
-      id: 5,
-      title: "Polera",
-      thumbnailUrl: "https://picsum.photos/id/25/600"
-    },
-    {
-      precio: 150,
-      id: 6,
-      title: "Pollera",
-      thumbnailUrl: "https://picsum.photos/id/21/600"
-    }
-  ];
+const fetchData = async () => {
+  const res = await fetch('./js/data.json');
+  const data = await res.json();
+  pintarCards(data)
+}
 
+fetchData();
 
 const cards = document.getElementById('cards')
 const items = document.getElementById('items')
@@ -44,7 +12,7 @@ const footer = document.getElementById('footer')
 const templateCard = document.getElementById('template-card').content
 const templateFooter = document.getElementById('template-footer').content
 const templateCarrito = document.getElementById('template-carrito').content
-const fragment = document.createDocumentFragment()
+const fragment = document.createDocumentFragment();
 
 
 let carrito = {}
@@ -58,7 +26,7 @@ window.addEventListener('load',function(){
 })
 // Traer productos
 function traerDatos(){
-    pintarCards(productos)
+    pintarCards(data)
 }
 
 const pintarCards = data => {
@@ -146,16 +114,9 @@ const pintarFooter = () => {
 
     footer.appendChild(fragment)
 
-    const boton = document.querySelector('#vaciar-carrito')
-    boton.addEventListener('click', () => {
-        carrito = {}
-        pintarCarrito()
-    })
-
 }
 
 
-// aiuda ;-;
 
 
 const btnSwal= document.getElementById("comp");
@@ -187,7 +148,8 @@ btnSwal.onclick = () => {
   
       }
     ) 
-    carrito=[];
+    carrito = {}
+    pintarCarrito()
   }
   
 }
